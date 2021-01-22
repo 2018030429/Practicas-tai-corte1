@@ -1,0 +1,2 @@
+# Practicas-tai-corte1
+ 
