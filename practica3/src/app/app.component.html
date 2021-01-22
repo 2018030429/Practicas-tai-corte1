@@ -1,0 +1,57 @@
+<div style="text-align: center">
+    <app-dado></app-dado>
+    <app-dado></app-dado>
+    <app-dado></app-dado>
+</div>
+
+<hr>
+
+<div style="text-align: center">
+    <app-dado2 valor="{{ valor1 }}"></app-dado2>
+    <app-dado2 [valor]="valor2"></app-dado2>
+    <app-dado2 [valor]="valor3"></app-dado2>
+    <hr>
+    <button (click)="tirar()">Tirar</button>
+</div>
+
+<hr>
+
+<p> Resultado: {{ resultado }} </p>
+
+<hr>
+
+<div style="text-align: center;">
+    <h1>Prueba del cronómetro</h1>
+    <app-cronometro [inicio]="15" (multiplo10)="actualizar( $event )"></app-cronometro>
+    <h2> Evento </h2>
+    <h3> {{ mensaje }} </h3>
+</div>
+
+<hr>
+
+<div style="text-align: center;">
+    <!-- Selector con HTML -->
+    <app-selector-numerico
+        [minimo]="1"
+        [maximo]="10"
+        #selector>
+    </app-selector-numerico>
+    <br>
+    <button (click)="selector.fijar(1)">Fijar 1</button>
+    <button (click)="selector.fijar(2)">Fijar 2</button>
+    <button (click)="selector.fijar(4)">Fijar 4</button>
+    <button (click)="selector.fijar(8)">Fijar 8</button>
+    <br>
+    <br>
+    <!-- Selector con @ViewChild -->
+    <app-selector-numerico
+        [minimo]="1"
+        [maximo]="10"
+        #selector2>
+    </app-selector-numerico>
+    <br>
+    <button (click)="fijarSelector(1)">Fijar 1</button>
+    <button (click)="fijarSelector(2)">Fijar 2</button>
+    <button (click)="fijarSelector(4)">Fijar 4</button>
+    <button (click)="fijarSelector(8)">Fijar 8</button>
+</div>
