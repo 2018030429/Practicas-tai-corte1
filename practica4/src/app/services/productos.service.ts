@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductosService {
 
-  constructor( private http:HttpClient ) {
-    console.log('Hola bb');
-  }
+  public URL:string = `http://localhost:5000/api/productos`;
+
+  constructor( private http:HttpClient ) {}
 
   get() {
-    console.log("Yo soy el camaleón");
+    return this.http.get<any[]>( this.URL );
   }
 
 }
