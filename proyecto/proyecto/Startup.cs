@@ -35,6 +35,8 @@ namespace proyecto
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseCors(builder => builder

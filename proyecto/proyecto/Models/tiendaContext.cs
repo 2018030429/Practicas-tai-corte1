@@ -15,6 +15,7 @@ namespace proyecto.Models
         {
         }
 
+        public virtual DbSet<Marcas> Marcas { get; set; }
         public virtual DbSet<Productos> Productos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,6 +29,30 @@ namespace proyecto.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Marcas>(entity =>
+            {
+                entity.ToTable("marcas");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.ImgSrc)
+                    .IsRequired()
+                    .HasColumnName("imgSrc")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasColumnName("nombre")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Website)
+                    .IsRequired()
+                    .HasColumnName("website")
+                    .HasMaxLength(255);
+            });
+
             modelBuilder.Entity<Productos>(entity =>
             {
                 entity.ToTable("productos");

@@ -1,0 +1,13 @@
+<h1 class="animated fadeIn fast">Marcas</h1> <hr>
+
+<div class="grid">
+    <div class="card border-light mb-3 animated fadeIn d-flex justify-content-center"  
+         *ngFor="let marca of ListMarcas">
+        <a [href]="marca.website" target="_blank" rel="noopener noreferrer"
+           class="">
+            <div class="card-body" [title]="marca.nombre">
+                <img [src]="marca.imgSrc" class="img-thumbnail img-muted" [alt]="marca.nombre">
+            </div>
+        </a>
+    </div>
+</div>

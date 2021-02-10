@@ -13,14 +13,13 @@ export class ProductsComponent implements OnInit {
   constructor( private servicioProductos:ProductosService ) { }
 
   async ngOnInit() {
-    // Opción 1 
+    //* Opción 1 
     // this.servicioProductos.get().subscribe(
     //   (data:any) => this.ListProductos = data
     // );
 
-    // Opción 2
+    //* Opción 2
     this.ListProductos = await this.servicioProductos.get().toPromise();
-    console.log(this.ListProductos);
   }
 }
 
