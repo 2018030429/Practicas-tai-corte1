@@ -7,7 +7,15 @@
           <h5 class="card-title">{{ producto.nombre }}</h5>
           <p class="card-text"> {{ producto.descripcion }} </p>
           <p class="card-text"><small class="text-muted">{{ producto.precio | currency }}</small></p>
-          <button class="btn btn-outline-success btn-block"> Ver más... </button>
+
+          <button class="btn btn-outline-success btn-block" (click)="verProducto(producto.id)"> 
+            Ver más... 
+          </button>
+          
+          <!-- <a class="btn btn-outline-success btn-block" [routerLink]="['/product', producto.id]">
+            Ver más...
+          </a> -->
+
         </div>
     </div>
 </div>

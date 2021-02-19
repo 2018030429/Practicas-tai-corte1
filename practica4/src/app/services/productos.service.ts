@@ -14,4 +14,8 @@ export class ProductosService {
     return this.http.get<any[]>( this.URL );
   }
 
+  getOne( id:number ) {
+    return this.http.get<any>(`${ this.URL }/${ id }`);
+  }
+
 }

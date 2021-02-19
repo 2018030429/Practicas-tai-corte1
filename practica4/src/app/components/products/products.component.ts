@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
+import { Producto } from '../shared/models/Product.model';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +12,8 @@ export class ProductsComponent implements OnInit {
 
   ListProductos:Producto[] = [];
 
-  constructor( private servicioProductos:ProductosService ) { }
+  constructor( private servicioProductos:ProductosService,
+               private router:Router ) { }
 
   async ngOnInit() {
     //* Opción 1 
@@ -21,12 +24,8 @@ export class ProductsComponent implements OnInit {
     //* Opción 2
     this.ListProductos = await this.servicioProductos.get().toPromise();
   }
-}
 
-interface Producto {
-  id:          number;
-  nombre:      string;
-  descripcion: string;
-  precio:      number;
-  imgSrc:      string;
+  verProducto(id: number):void {
+    this.router.navigate(['/product', id ]);
+  }
 }

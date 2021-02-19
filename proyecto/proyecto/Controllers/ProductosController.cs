@@ -33,10 +33,24 @@ namespace proyecto.Controllers
         }
 
         // GET api/productos/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{id}", Name = "Get")]
+        public IActionResult Get(long id)
         {
-            return "value";
+            try
+            {
+                tiendaContext db = new tiendaContext();
+
+                // SELECT * FROM productos WHERE id = ?
+                // Productos Producto = db.Productos.Find(id);
+                Productos Producto = db.Productos.Where( a => a.Id == id).SingleOrDefault();
+
+                return Ok(Producto);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
         }
         
         // POST api/productos
