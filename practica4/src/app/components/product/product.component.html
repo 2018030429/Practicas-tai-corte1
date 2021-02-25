@@ -1,5 +1,25 @@
-<ol>
-    <li>{{ producto.nombre }}</li>
-    <li>{{ producto.descripcion }}</li>
-    <li>{{ producto.precio }}</li>
-</ol>
+<div class="d-flex justify-content-center" *ngIf="isLoading">
+    <div class="spinner-grow" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!isLoading" class="animated fadeIn fast">
+    <h1>{{ producto.nombre }} <small>{{ producto.precio | currency }}</small></h1><hr>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <img [src]="producto.imgSrc" [alt]="producto.nombre" class="img-fluid">
+            <br><br>
+            <a class="btn btn-outline-danger btn-block" routerLink="/products">Regresar</a>
+        </div>
+        <div class="col-md-8">
+            <h3>{{ producto.nombre }}</h3><hr>
+            <p>
+                {{ producto.descripcion }}
+            </p>
+            <span>{{ producto.precio | currency }}</span>
+        </div>
+    </div>
+</div>
+
