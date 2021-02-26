@@ -52,6 +52,27 @@ namespace proyecto.Controllers
                 return BadRequest();
             }
         }
+
+        // GET api/productos/reference
+        [HttpGet("buscar/{texto}", Name="GetBusqueda")]
+        public IActionResult GetBusqueda(string texto)
+        {
+            try
+            {
+                if (texto.Length < 3) return Ok();
+
+                tiendaContext db = new tiendaContext();
+
+                // SELECT * FROM productos WHERE nombre LIKE "%texto%";
+                List<Productos> ListProductos = db.Productos.Where(b => b.Nombre.Contains(texto)).ToList();
+
+                return Ok(ListProductos);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
         
         // POST api/productos
         [HttpPost]

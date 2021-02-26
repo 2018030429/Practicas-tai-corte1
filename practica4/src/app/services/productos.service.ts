@@ -18,4 +18,8 @@ export class ProductosService {
     return this.http.get<any>(`${ this.URL }/${ id }`);
   }
 
+  getItems( texto:string ) {
+    return this.http.get<any>(`${ this.URL }/buscar/${ texto }`);
+  }
+
 }
