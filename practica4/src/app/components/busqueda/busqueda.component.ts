@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
-import { ProductosService } from 'src/app/services/productos.service';
-import { Producto } from '../shared/models/Product.model';
+
+// Servicios
+import { ProductosService } from '@services/productos.service';
+
+// Modelos
+import { Producto } from '@models/Product.model';
 
 @Component({
   selector: 'app-busqueda',
@@ -10,7 +14,7 @@ import { Producto } from '../shared/models/Product.model';
 })
 export class BusquedaComponent implements OnInit {
 
-  public ListProductos: Producto[];
+  public ListProductos: Producto[] = [];
   public texto:string;
 
   constructor( private router: Router,
@@ -18,18 +22,18 @@ export class BusquedaComponent implements OnInit {
                private ProductService: ProductosService ) { }
 
   ngOnInit() {
-    this.getProductoNombre();
+    this.getProductosPorNombre();
   }
 
-  getProductoNombre() {
+  getProductosPorNombre():void {
     this.activeRoute.params.subscribe( async ({ texto }) => {
       this.texto = texto;
-      this.ListProductos = await this.obtenerProducto( texto );
+      this.ListProductos = await this.obtenerProductos( texto );
     });
   }
 
-  async obtenerProducto( texto:string ):Promise<any> {
-    return await this.ProductService.getItems(texto).toPromise();
+  async obtenerProductos( texto:string ):Promise<Producto[]> {
+    return await this.ProductService.getProductsByName(texto).toPromise();
   }
 
   verProducto(id: number):void {

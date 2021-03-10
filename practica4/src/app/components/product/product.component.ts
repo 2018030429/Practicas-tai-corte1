@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductosService } from 'src/app/services/productos.service';
-import { Producto } from '../shared/models/Product.model';
+
+// Servicios
+import { ProductosService } from '@services/productos.service';
+
+// Modelos
+import { Producto } from '@models/Product.model';
 
 @Component({
   selector: 'app-product',
@@ -18,11 +22,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe( async ({ id }) => {
-      this.producto = await this.servicioProductos.getOne( id ).toPromise();
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 1500);
-      console.table(this.producto);
+      this.producto = await this.servicioProductos.getProduct( id ).toPromise();
+      this.isLoading = false;
     });
   }
 

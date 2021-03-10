@@ -1,0 +1,23 @@
+.input-group-text {
+    background-color: transparent;
+    border: transparent;
+}
+
+.input-group-prepend {
+    background-color: gray;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+
+}
+
+img {
+    width: fit-content;
+}
+
+input {
+    border-radius: 2rem;
+}
+
+button {
+    border-radius: 2rem;
+}

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductosService } from 'src/app/services/productos.service';
-import { Producto } from '../shared/models/Product.model';
+
+// Servicios
+import { ProductosService } from '@services/productos.service';
+
+// Modelos
+import { Producto } from '@models/Product.model';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +14,7 @@ import { Producto } from '../shared/models/Product.model';
 })
 export class ProductsComponent implements OnInit {
 
-  ListProductos:Producto[] = [];
+  public ListProductos:Producto[] = [];
 
   constructor( private servicioProductos:ProductosService,
                private router:Router ) { }
@@ -22,7 +26,7 @@ export class ProductsComponent implements OnInit {
     // );
 
     //* Opción 2
-    this.ListProductos = await this.servicioProductos.get().toPromise();
+    this.ListProductos = await this.servicioProductos.getProducts().toPromise();
   }
 
   verProducto(id: number):void {

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MarcasService } from 'src/app/services/marcas.service';
+
+// Servicios
+import { MarcasService } from '@services/marcas.service';
+
+// Modelos
+import { Marca } from '@models/Marca.model';
 
 @Component({
   selector: 'app-marcas',
@@ -12,16 +17,9 @@ export class MarcasComponent implements OnInit {
 
   constructor( private servicioMarcas:MarcasService ) { }
 
-  async ngOnInit() {
+  async ngOnInit():Promise<any> {
     this.ListMarcas = await this.servicioMarcas.getMarcas().toPromise();
   }
 
-}
-
-interface Marca {
-  id:      number;
-  nombre:  string;
-  website: string;
-  imgSrc:  string;
 }
 

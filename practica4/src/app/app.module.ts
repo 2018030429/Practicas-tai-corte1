@@ -17,6 +17,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { MarcasComponent } from './components/marcas/marcas.component';
 import { ProductComponent } from './components/product/product.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { TarjetaProductosComponent } from './components/tarjeta-productos/tarjeta-productos.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
     ProductsComponent,
     MarcasComponent,
     ProductComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    TarjetaProductosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
