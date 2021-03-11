@@ -29,7 +29,7 @@ export class ProductsComponent implements OnInit {
     this.ListProductos = await this.servicioProductos.getProducts().toPromise();
   }
 
-  verProducto(id: number):void {
+  public verProducto(id: number):void {
     this.router.navigate(['/product', id ]);
   }
 }

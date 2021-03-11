@@ -25,18 +25,18 @@ export class BusquedaComponent implements OnInit {
     this.getProductosPorNombre();
   }
 
-  getProductosPorNombre():void {
+  private getProductosPorNombre():void {
     this.activeRoute.params.subscribe( async ({ texto }) => {
       this.texto = texto;
       this.ListProductos = await this.obtenerProductos( texto );
     });
   }
 
-  async obtenerProductos( texto:string ):Promise<Producto[]> {
+  private async obtenerProductos( texto:string ):Promise<Producto[]> {
     return await this.ProductService.getProductsByName(texto).toPromise();
   }
 
-  verProducto(id: number):void {
+  public verProducto(id: number):void {
     this.router.navigate(['/product', id ]);
   }
 

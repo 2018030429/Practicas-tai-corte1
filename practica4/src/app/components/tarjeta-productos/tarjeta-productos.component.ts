@@ -17,7 +17,7 @@ export class TarjetaProductosComponent {
     this.productoSeleccionado = new EventEmitter();
   }
 
-  verProducto(id: number):void {
+  public verProducto(id: number):void {
     this.productoSeleccionado.emit( id );
   }
 

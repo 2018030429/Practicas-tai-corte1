@@ -14,7 +14,7 @@ export class MarcasService {
 
   constructor( private http:HttpClient ) { }
 
-  getMarcas():Observable<Marca[]> {
+  public getMarcas():Observable<Marca[]> {
     return this.http.get<Marca[]>( this.EndPoint );
   }
 }

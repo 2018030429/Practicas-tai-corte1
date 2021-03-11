@@ -14,15 +14,15 @@ export class ProductosService {
 
   constructor( private http:HttpClient ) {}
 
-  getProducts():Observable<Producto[]> {
+  public getProducts():Observable<Producto[]> {
     return this.http.get<Producto[]>( this.EndPoint );
   }
 
-  getProduct( id:number ):Observable<Producto> {
+  public getProduct( id:number ):Observable<Producto> {
     return this.http.get<Producto>(`${ this.EndPoint }/${ id }`);
   }
 
-  getProductsByName( texto:string ):Observable<Producto[]> {
+  public getProductsByName( texto:string ):Observable<Producto[]> {
     return this.http.get<Producto[]>(`${ this.EndPoint }/buscar/${ texto }`);
   }
 
