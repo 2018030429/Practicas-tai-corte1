@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using proyecto.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace proyecto.Controllers
 {
+    //[Authorize]
     [Route("api/productos")]
     [ApiController]
     public class ProductosController : ControllerBase

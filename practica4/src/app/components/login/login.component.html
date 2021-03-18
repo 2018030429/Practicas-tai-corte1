@@ -1,3 +1,10 @@
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="isBadRequest">
+  <strong>{{ errorMessage }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
         <div class="card text-white bg-dark mb-3 animated fadeIn">

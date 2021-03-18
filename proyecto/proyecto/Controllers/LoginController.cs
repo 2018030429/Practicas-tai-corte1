@@ -45,7 +45,7 @@ namespace proyecto.Controllers
 
                 if (usuarios == null) throw new Exception("Username or Password incorrect.");
 
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("upsin@2021"));
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("KeyForSignInUpsin@2021"));
                 var siginCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 List<Claim> ListClaim = new List<Claim>
