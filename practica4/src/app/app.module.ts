@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from "@angular/forms";
 
 // Rutas
 import { App_routing } from './app.routes';
@@ -36,7 +37,8 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BrowserModule,
     App_routing,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ProductosService

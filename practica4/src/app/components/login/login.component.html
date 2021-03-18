@@ -1,12 +1,12 @@
 <div class="row d-flex justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="card text-white bg-dark mb-3 animated fadeIn">
             
             <div class="card-body">
               <h5 class="card-title text-center">
                   <img src="assets/ng-dark.svg" alt="angular logo">
               </h5> <hr>
-            <form>
+            <form (ngSubmit)="singUp()">
 
                 <!-- Username -->
                 <div class="input-group mb-3">
@@ -15,7 +15,7 @@
                         <i class="fas fa-user text-white"></i>
                       </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" [(ngModel)]="login.username" class="form-control" name="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
 
                 <!-- Password -->
@@ -25,12 +25,12 @@
                         <i class="fas fa-lock text-white"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1">
+                    <input type="password" [(ngModel)]="login.password" class="form-control" name="password" placeholder="Password" aria-label="Contraseña" aria-describedby="basic-addon1">
                 </div>
                 
                 <!-- Boton -->
                 <div>
-                    <button type="button" class="btn btn-block btn-success">
+                    <button type="submit" class="btn btn-block btn-success">
                         Login
                     </button>
                 </div>
