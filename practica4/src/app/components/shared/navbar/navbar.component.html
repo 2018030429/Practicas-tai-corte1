@@ -15,6 +15,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="products">Productos</a>
       </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="currentSession">
+        <a class="nav-link" routerLink="alta">Alta Productos</a>
+      </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="marcas">Marcas</a>
       </li>

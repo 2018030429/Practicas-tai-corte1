@@ -25,7 +25,7 @@ export class NavbarComponent {
 
   public async logOut() {
     this.LoginService.setSession = false;
-    console.log(this.LoginService.getSession);
+    this.router.navigate(['login']);
   }
   
 }

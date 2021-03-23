@@ -20,6 +20,7 @@ import { ProductComponent } from './components/product/product.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { TarjetaProductosComponent } from './components/tarjeta-productos/tarjeta-productos.component';
 import { LoginComponent } from './components/login/login.component';
+import { AltaproductosComponent } from './components/altaproductos/altaproductos.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginComponent } from './components/login/login.component';
     ProductComponent,
     BusquedaComponent,
     TarjetaProductosComponent,
-    LoginComponent
+    LoginComponent,
+    AltaproductosComponent
   ],
   imports: [
     BrowserModule,

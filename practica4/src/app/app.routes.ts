@@ -8,6 +8,10 @@ import { LoginComponent } from './components/login/login.component';
 import { MarcasComponent } from './components/marcas/marcas.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
+import { AltaproductosComponent } from './components/altaproductos/altaproductos.component';
+
+// Guardianes
+import { AuthGuard } from '@services/auth.guard';
 
 const app_routes: Routes = [
     { path:'home', component:HomeComponent },
@@ -15,6 +19,10 @@ const app_routes: Routes = [
     { path:'login', component: LoginComponent },
     { path:'marcas', component:MarcasComponent },
     { path:'products', component:ProductsComponent },
+    { 
+        path:'alta', component:AltaproductosComponent, 
+        canActivate: [ AuthGuard ]
+    },
     { path:'product/:id', component:ProductComponent },
     { path:'product/search/:texto', component:BusquedaComponent },
     { path:'**', pathMatch: 'full', redirectTo: 'home' }

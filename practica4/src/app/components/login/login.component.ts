@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Servicios
 import { LoginService } from '@services/login.service';
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     password: null
   }
 
-  constructor( private LoginService:LoginService ) { }
+  constructor( private LoginService:LoginService,
+               private router: Router ) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     try {
       let response = await this.LoginService.logIn(this.login).toPromise();
       this.LoginService.setSession = true;
+      this.router.navigate(['alta']);
       console.log(response);
     } catch (error) {
       this.errorMessage = error.error;
