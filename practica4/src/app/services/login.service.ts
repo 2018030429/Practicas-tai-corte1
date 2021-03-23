@@ -11,11 +11,20 @@ import { Usuario } from '@models/Usuario.model';
 export class LoginService {
 
   private EndPoint:string = `http://localhost:5000/api/login`;
+  private startedSession:boolean = false;
 
   constructor( private http:HttpClient ) { }
 
   public logIn(usuario:Usuario):Observable<Object> {
     return this.http.post<Object>( this.EndPoint, usuario );
   }
+  
+  public set setSession(v : boolean) {
+    this.startedSession = v;
+  }
 
+  public get getSession():boolean {
+    return this.startedSession;
+  }
+  
 }

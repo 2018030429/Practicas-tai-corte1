@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
   }
 
   public async singUp() {
-    console.table(this.login);
     try {
       let response = await this.LoginService.logIn(this.login).toPromise();
+      this.LoginService.setSession = true;
       console.log(response);
     } catch (error) {
       this.errorMessage = error.error;

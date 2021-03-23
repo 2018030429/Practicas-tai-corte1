@@ -21,3 +21,10 @@ input {
 button {
     border-radius: 2rem;
 }
+
+@media screen and (max-width: 280px) {
+    .col-9 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
