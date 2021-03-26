@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 // Servicios
 import { ProductosService } from '@services/productos.service';
@@ -14,8 +16,19 @@ import { Producto } from '@models/Product.model';
 export class AltaproductosComponent implements OnInit {
 
   public ProductList:Producto[];
+  public frmProduct:FormGroup;
 
-  constructor( private PruductService:ProductosService ) { }
+  constructor( private PruductService:ProductosService,
+               private builder:FormBuilder,
+               private router:Router ) { 
+    
+    this.frmProduct = this.builder.group({
+      nombre: ['', [Validators.required]],
+      precio: [0, [Validators.required]],
+      descripcion: ['', [Validators.required]]
+    });
+    
+  }
 
   ngOnInit(): void {
     this.getProductsList();
@@ -26,7 +39,7 @@ export class AltaproductosComponent implements OnInit {
   }
 
   public showDetailsProduct( product:Producto ) {
-    console.table(product);
+    this.router.navigate(['/product', product]);
   }
 
   public updateProduct( product:Producto ) {

@@ -11,7 +11,8 @@
         <div class="col-md-4">
             <img [src]="producto.imgSrc" [alt]="producto.nombre" class="img-fluid">
             <br><br>
-            <a class="btn btn-outline-danger btn-block" routerLink="/products">Back</a>
+            <!-- <a class="btn btn-outline-danger btn-block" routerLink="/products">Back</a> -->
+            <a (click)="backPage()" class="btn btn-outline-danger btn-block" routerLink="/products">Back</a>
         </div>
         <div class="col-md-8">
             <h3>{{ producto.nombre }}</h3><hr>

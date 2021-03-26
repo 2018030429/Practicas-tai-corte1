@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 
 // Rutas
 import { App_routing } from './app.routes';
@@ -40,7 +41,8 @@ import { AltaproductosComponent } from './components/altaproductos/altaproductos
     BrowserModule,
     App_routing,
     HttpClientModule,
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [
     ProductosService
