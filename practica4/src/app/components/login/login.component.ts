@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
       let response = await this.LoginService.logIn(this.login).toPromise();
       this.LoginService.setSession = true;
       this.router.navigate(['alta']);
-      console.log(response);
     } catch (error) {
       this.errorMessage = error.error;
       this.isBadRequest = true;

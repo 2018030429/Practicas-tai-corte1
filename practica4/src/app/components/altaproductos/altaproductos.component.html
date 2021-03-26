@@ -2,12 +2,12 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-outline-success" style="margin-bottom: 15px;"
-        data-toggle="modal" data-target="#productModal">
+        data-toggle="modal" data-target="#productModal" (click)="resetModal()">
   Agregar
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" #modal>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,12 +18,42 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="frmProduct">
-          <!-- Aquí va el form -->
+
+          <div class="form-group">
+            <label for="txtNombre">Nombre</label>
+            <input type="text" class="form-control" id="txtNombre" formControlName="nombre">
+            <small class="text-danger" *ngIf="isInvalid(frmProduct.get('nombre'))">
+              *Introduzca el nombre del producto
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="txtPrecio">Precio</label>
+            <input type="number" class="form-control" id="txtPrecio" formControlName="precio">
+            <small class="text-danger" *ngIf="isInvalid(frmProduct.get('precio'))">
+              *Introduzca el precio del producto
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="txtDescripcion">Descripción</label>
+            <textarea class="form-control" id="txtDescripcion" rows="3" formControlName="descripcion">
+            </textarea>
+            <small class="text-danger" *ngIf="isInvalid(frmProduct.get('descripcion'))">
+              *Introduzca una descripcion del producto
+            </small>
+          </div>
+
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal"
+          (click)="createProduct()" [disabled]="frmProduct.invalid">
+          Guardar
+        </button>
       </div>
     </div>
   </div>
@@ -44,13 +74,13 @@
       <td> {{ product.nombre }} </td>
       <td> {{ product.precio | currency }} </td>
       <td class="text-center">
-        <button class="btn  btn-outline-dark" (click)="showDetailsProduct(product)">
+        <button class="btn  btn-outline-dark" (click)="showDetailsProduct(product.id)">
           <i class="fas fa-info-circle"></i>
         </button>
-        <button class="btn  btn-outline-dark mx-3" (click)="updateProduct(product)">
+        <button class="btn  btn-outline-dark mx-3" (click)="updateProduct(product.id)">
           <i class="fas fa-pencil-alt"></i>
         </button>
-        <button class="btn  btn-outline-dark" (click)="deleteProduct(product)">
+        <button class="btn  btn-outline-dark" (click)="deleteProduct(product.id)">
           <i class="fas fa-fire"></i>
         </button>
       </td>

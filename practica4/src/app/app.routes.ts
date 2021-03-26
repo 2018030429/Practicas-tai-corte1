@@ -1,14 +1,14 @@
 import { RouterModule, Routes } from '@angular/router';
 
 // Componentes
-import { AboutComponent } from './components/about/about.component';
-import { BusquedaComponent } from './components/busqueda/busqueda.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { MarcasComponent } from './components/marcas/marcas.component';
-import { ProductComponent } from './components/product/product.component';
-import { ProductsComponent } from './components/products/products.component';
-import { AltaproductosComponent } from './components/altaproductos/altaproductos.component';
+import { HomeComponent } from '@com/home/home.component';
+import { LoginComponent } from '@com/login/login.component';
+import { AboutComponent } from '@com/about/about.component';
+import { MarcasComponent } from '@com/marcas/marcas.component';
+import { ProductComponent } from '@com/product/product.component';
+import { ProductsComponent } from '@com/products/products.component';
+import { BusquedaComponent } from '@com/busqueda/busqueda.component';
+import { AltaproductosComponent } from '@com/altaproductos/altaproductos.component';
 
 // Guardianes
 import { AuthGuard } from '@services/auth.guard';

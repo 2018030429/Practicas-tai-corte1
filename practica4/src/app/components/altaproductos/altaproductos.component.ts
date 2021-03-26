@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, AbstractControl } from "@angular/forms";
 
 // Servicios
 import { ProductosService } from '@services/productos.service';
@@ -18,9 +18,11 @@ export class AltaproductosComponent implements OnInit {
   public ProductList:Producto[];
   public frmProduct:FormGroup;
 
-  constructor( private PruductService:ProductosService,
-               private builder:FormBuilder,
-               private router:Router ) { 
+  constructor( 
+    private PruductService:ProductosService,
+    private builder:FormBuilder,
+    private router:Router 
+  ) { 
     
     this.frmProduct = this.builder.group({
       nombre: ['', [Validators.required]],
@@ -38,15 +40,27 @@ export class AltaproductosComponent implements OnInit {
     this.ProductList = await this.PruductService.getProducts().toPromise();
   }
 
-  public showDetailsProduct( product:Producto ) {
-    this.router.navigate(['/product', product]);
+  public showDetailsProduct( idx:number ):void {
+    this.router.navigate(['product', idx]);
   }
 
-  public updateProduct( product:Producto ) {
+  public resetModal():void {
+    this.frmProduct.reset();
+  }
+
+  isInvalid(form:AbstractControl):boolean {
+    return form.invalid && form.dirty;
+  }
+
+  public createProduct():void {
+    console.table(this.frmProduct.value);
+  }
+
+  public updateProduct( product:Producto ):void {
     console.table(product);
   }
 
-  public deleteProduct( product:Producto ) {
+  public deleteProduct( product:Producto ):void {
     console.table(product);
   }
 
