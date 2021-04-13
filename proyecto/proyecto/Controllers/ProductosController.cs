@@ -78,8 +78,24 @@ namespace proyecto.Controllers
         
         // POST api/productos
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Productos value)
         {
+            try 
+            {
+                tiendaContext db = new tiendaContext();
+
+                value.ImgSrc = "http://localhost:5000/homepod.png";
+
+                db.Productos.Add(value);
+
+                db.SaveChanges();
+
+                return Ok(value);
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
         }
 
         // PUT api/productos/5
@@ -90,8 +106,24 @@ namespace proyecto.Controllers
 
         // DELETE api/productos/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(long id)
         {
+            try
+            {
+                tiendaContext db = new tiendaContext();
+
+                Productos item = db.Productos.Find(id);
+
+                db.Productos.Remove(item);
+
+                db.SaveChanges();
+
+                return Ok();
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
         }
     }
 }

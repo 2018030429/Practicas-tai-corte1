@@ -21,7 +21,8 @@
 
           <div class="form-group">
             <label for="txtNombre">Nombre</label>
-            <input type="text" class="form-control" id="txtNombre" formControlName="nombre">
+            <input type="text" class="form-control" id="txtNombre" formControlName="nombre" 
+              [class.error]="isInvalid(frmProduct.get('nombre'))">
             <small class="text-danger" *ngIf="isInvalid(frmProduct.get('nombre'))">
               *Introduzca el nombre del producto
             </small>
@@ -29,7 +30,8 @@
 
           <div class="form-group">
             <label for="txtPrecio">Precio</label>
-            <input type="number" class="form-control" id="txtPrecio" formControlName="precio">
+            <input type="number" class="form-control" id="txtPrecio" formControlName="precio"
+              [class.error]="isInvalid(frmProduct.get('precio'))">
             <small class="text-danger" *ngIf="isInvalid(frmProduct.get('precio'))">
               *Introduzca el precio del producto
             </small>
@@ -37,8 +39,8 @@
 
           <div class="form-group">
             <label for="txtDescripcion">Descripción</label>
-            <textarea class="form-control" id="txtDescripcion" rows="3" formControlName="descripcion">
-            </textarea>
+            <textarea class="form-control" id="txtDescripcion" rows="3" formControlName="descripcion"
+              [class.error]="isInvalid(frmProduct.get('descripcion'))"></textarea>
             <small class="text-danger" *ngIf="isInvalid(frmProduct.get('descripcion'))">
               *Introduzca una descripcion del producto
             </small>

@@ -48,20 +48,22 @@ export class AltaproductosComponent implements OnInit {
     this.frmProduct.reset();
   }
 
-  isInvalid(form:AbstractControl):boolean {
+  public isInvalid(form:AbstractControl):boolean {
     return form.invalid && form.dirty;
   }
 
-  public createProduct():void {
-    console.table(this.frmProduct.value);
+  public async createProduct():Promise<void> {
+    if (this.frmProduct.invalid) return;
+    let res = await this.PruductService.postProduct(this.frmProduct.value).toPromise();
+    console.table(res);
   }
 
   public updateProduct( product:Producto ):void {
     console.table(product);
   }
 
-  public deleteProduct( product:Producto ):void {
-    console.table(product);
+  public async deleteProduct( id:number ):Promise<void> {
+    await this.PruductService.deleteProduct(id).toPromise();
   }
 
 }

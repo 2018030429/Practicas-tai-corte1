@@ -26,4 +26,12 @@ export class ProductosService {
     return this.http.get<Producto[]>(`${ this.EndPoint }/buscar/${ texto }`);
   }
 
+  public postProduct( product:Producto ):Observable<Producto> {
+    return this.http.post<Producto>(this.EndPoint, product);
+  }
+
+  public deleteProduct( id:number ):Observable<any> {
+    return this.http.delete<any>(`${ this.EndPoint }/${ id }`);
+  }
+
 }
